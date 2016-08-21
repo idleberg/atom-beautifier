@@ -13,7 +13,7 @@ convertJs = ->
   console.log("Converting Js..")
   editor = atom.workspace.activePaneItem
 
-  return unless editor.getGrammar()?.scopeName is 'source.js'
+  return unless editor.getGrammar()?.scopeName.startsWith 'source.js'
 
   editor.setText JSbeautify(editor.getText(),
     indent_size: atom.config.get('atom-beautifier.JsIndentSize')
